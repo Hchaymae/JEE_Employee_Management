@@ -13,24 +13,39 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import jakarta.inject.Inject;
+
 
 @ManagedBean(name="appBean")
 @ViewScoped
 public class AppBean {
+     @Inject
     private List<Employee> employees;
+     @Inject
     private List<Employee> employeesList;
+     @Inject
     private EmployeeService employeeService;
+     @Inject
     private Employee employee;
+     @Inject
     private HtmlCommandButton affecterButton;
+     @Inject
     private List<SelectItem> posts;
+     @Inject
     private List<Project> projects;
+     @Inject
     private ProjectService projectService;
+     @Inject
     private Project project;
 
     private String skillsString;
+     @Inject
     private String selectedEmployee;
+     @Inject
     private String selectedProject;
+     @Inject
     private String selectedPercentage;
+     @Inject
     private EmployeeSkill skill;
 
     private List<String> employeeSkills = new ArrayList<>();

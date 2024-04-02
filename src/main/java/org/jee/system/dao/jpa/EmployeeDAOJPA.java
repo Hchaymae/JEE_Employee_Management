@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.jee.system.dao.EmployeeDAO;
 import org.jee.system.dao.ProjectDAO;
 import org.jee.system.model.*;
+import jakarta.enterprise.context.RequestScoped;
 
 import java.util.List;
 

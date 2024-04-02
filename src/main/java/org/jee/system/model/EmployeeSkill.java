@@ -4,6 +4,11 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "employee_skills")
+@NamedQueries({
+    @NamedQuery(name = "EmployeeSkill.findAll", query = "SELECT es FROM EmployeeSkill es"),
+    @NamedQuery(name = "EmployeeSkill.findByEmployeeId", query = "SELECT es FROM EmployeeSkill es WHERE es.employee.id = :employeeId"),
+    @NamedQuery(name = "EmployeeSkill.findBySkill", query = "SELECT es FROM EmployeeSkill es WHERE es.skill = :skill")
+})
 public class EmployeeSkill {
 
     @Id

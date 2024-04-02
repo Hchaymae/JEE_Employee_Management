@@ -7,6 +7,7 @@ import org.jee.system.model.*;
 
 import java.util.List;
 
+@RequestScoped
 public class EmployeeDAOJPA implements EmployeeDAO {
 
     private EntityManagerFactory entityManagerFactory;

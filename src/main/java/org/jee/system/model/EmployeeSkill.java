@@ -8,12 +8,14 @@ public class EmployeeSkill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
     @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
+    @Column(name = "skill")
     private String skill;
 
     public EmployeeSkill() {

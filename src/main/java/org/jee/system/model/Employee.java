@@ -1,25 +1,34 @@
 package org.jee.system.model;
 
-import jakarta.persistence.*;
 
+import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name="employee")
 public class Employee {
-        @Id
-        @GeneratedValue(strategy= GenerationType.IDENTITY)
-        private int id ;
-        private String name;
-        private String email;
+    
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
 
-        @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
-        private List<EmployeeProject> employeeProjects;
+    @Column(name = "name")
+    private String name;
 
-        @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-        @JoinColumn(name = "employee_id")
-        private List<EmployeeSkill> skills;
-        private Post post;
+    @Column(name = "email")
+    private String email;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<EmployeeProject> employeeProjects;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "employee_id")
+    private List<EmployeeSkill> skills;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "post")
+    private Post post;
 
         public Employee() {
                 super();

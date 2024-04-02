@@ -9,7 +9,7 @@
     <class>org.jee.system.model.EmployeeSkill</class>
 
       <properties>
-         <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://mysql-chay.mysql.database.azure.com:3306/projectexam"/>
+         <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://mysql-chay.mysql.database.azure.com:3306/projectexam?useSSL=true&amp;requireSSL=false"/>
         <property name="jakarta.persistence.jdbc.user" value="sqladmin"/>
         <property name="jakarta.persistence.jdbc.password" value="chaymae123!"/>
         <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

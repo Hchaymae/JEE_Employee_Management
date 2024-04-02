@@ -7,10 +7,16 @@ import java.util.List;
 @Entity
 @Table(name="project")
 public class Project {
+    
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+    
+    @Column(name = "name")
     private String name;
+    
+    @Column(name = "budget")
     private double budget;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)

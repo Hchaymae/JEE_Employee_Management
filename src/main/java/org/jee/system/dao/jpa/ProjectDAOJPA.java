@@ -8,6 +8,7 @@ import org.jee.system.model.Project;
 
 import java.util.List;
 
+@RequestScoped
 public class ProjectDAOJPA implements ProjectDAO {
 
     private EntityManagerFactory entityManagerFactory;

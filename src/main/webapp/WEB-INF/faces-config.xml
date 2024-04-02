@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="3.0" xmlns="https://jakarta.ee/xml/ns/jakartaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                                  https://jakarta.ee/xml/ns/jakartaee/web-facesconfig_3_0.xsd">
+
+<!--    <managed-bean>-->
+<!--        <managed-bean-name>employee</managed-bean-name>-->
+<!--        <managed-bean-class>org.jee.system.Bean.AppBean</managed-bean-class>-->
+<!--        <managed-bean-scope>session</managed-bean-scope>-->
+<!--    </managed-bean>-->
+
+<!--    <managed-bean>-->
+<!--        <managed-bean-name>project</managed-bean-name>-->
+<!--        <managed-bean-class>org.jee.system.Bean.ProjectBean</managed-bean-class>-->
+<!--        <managed-bean-scope>session</managed-bean-scope>-->
+<!--    </managed-bean>-->
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>list</from-outcome>
+            <to-view-id>/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+
+</faces-config>

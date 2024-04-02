@@ -1,0 +1,9 @@
+.bordered {
+    border: 1px solid black;
+}
+
+
+.clickable-text a {
+    text-decoration: none;
+    color: black;
+}

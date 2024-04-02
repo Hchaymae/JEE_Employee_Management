@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <h:outputStylesheet  library="webjars" name="bootstrap/5.3.3/css/bootstrap.css"/>
+    <h:outputStylesheet library="css" name="styles.css"/>
+    <title>Affectation</title>
+</h:head>
+
+<h:body>
+    <h:form>
+            <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh; width:auto;">
+
+                <div class="d-flex flex-column align-items-center">
+                    <div class="text-center mb-5">
+                        <h:outputText class="h1" value="Employee Affectation"/>
+                    </div>
+                    <div class="container">
+                        <h:messages globalOnly="true" infoClass="alert alert-success" errorClass="alert alert-danger" warnClass="alert alert-warning"    style="list-style: none" />
+                    </div>
+                    <div>
+                        <h:outputLink style="text-decoration: none; color:cornflowerblue;" value="list.xhtml">Employees</h:outputLink>
+                        <h:outputText value=" | " escape="false" />
+                        <h:outputLink style="text-decoration: none; color:cornflowerblue;" value="affectation.xhtml">Back To Home</h:outputLink>
+                    </div>
+                    <br/><br/>
+                    <div class="mb-5">
+                        <h:outputText class="h6" value="Employee Name "/>
+                        <h:selectOneMenu value="#{appBean.selectedEmployee}" style="width: 200px;" class="form-select">
+                            <f:selectItems value="#{appBean.employees}" var="employee" itemValue="#{employee.name}" itemLabel="#{employee.name}" />
+                        </h:selectOneMenu>
+                    </div>
+
+                    <div class="mb-5">
+                        <h:outputText class="h6" value="Project Name "/>
+                        <h:selectOneListbox value="#{appBean.selectedProject}" size="3" styleClass="form-select" style="width: 200px;">
+                            <f:selectItems value="#{appBean.projects}" var="project" itemValue="#{project.name}" itemLabel="#{project.name}" />
+                        </h:selectOneListbox>
+                    </div>
+
+                    <div class="mb-5">
+                        <h:outputText class="h6" value="Implications"/>
+                        <h:selectOneMenu value="#{appBean.selectedPercentage}" style="width: 200px;" class="form-select">
+                            <f:selectItem itemValue="10" itemLabel="10%" />
+                            <f:selectItem itemValue="20" itemLabel="20%" />
+                            <f:selectItem itemValue="30" itemLabel="30%" />
+                        </h:selectOneMenu>
+                    </div>
+
+                    <div>
+                        <h:commandButton value="Affecter projet" action="#{appBean.submit()}" type="submit"
+                                         class="btn btn-primary text-center" style="margin-bottom:10px;" />
+                    </div>
+                </div>
+            </div>
+
+    </h:form>
+</h:body>
+</html>

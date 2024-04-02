@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:head>
+        <h:outputStylesheet  library="webjars" name="bootstrap/5.3.3/css/bootstrap.css"/>
+        <title>Add an Employee</title>
+    </h:head>
+    <h:body>
+        <div class="container mt-5">
+            <h:form>
+                <div class="container">
+                    <h:messages globalOnly="true" infoClass="alert alert-success" errorClass="alert alert-danger" warnClass="alert alert-warning"    style="list-style: none" />
+                </div>
+                <h2>Add Employee</h2>
+                <div>
+                    <h:outputLink style="text-decoration: none; color:cornflowerblue;" value="list.xhtml">Back To Home</h:outputLink>
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <h:inputText id="name" value="#{appBean.employee.name}" class="form-control" required="true"/>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <h:inputText id="email" value="#{appBean.employee.email}" class="form-control" required="true"/>
+                </div>
+                <div class="mb-3">
+                    <label for="post" class="form-label">Post</label>
+                    <h:selectOneMenu id="post" value="#{appBean.employee.post}" class="form-control" required="true">
+                        <f:selectItems value="#{appBean.posts}" var="post" itemValue="#{post}" itemLabel="#{post.label}"/>
+                    </h:selectOneMenu>
+                </div>
+                <div class="mb-3">
+                    <label for="skills" class="form-label">Skills (comma separated)</label>
+                    <h:inputText id="skills" value="#{appBean.skillsString}" class="form-control"/>
+                </div>
+                <h:commandButton value="Add Employee" action="#{appBean.addEmployee}" class="btn btn-primary"/>
+            </h:form>
+        </div>
+    </h:body>
+</f:view>
+</html>

@@ -1,0 +1,20 @@
+
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ìºà»ûÿÿÿÿ8ÂŠ×úè1J$19a3d43e-0eaf-4f8d-9f69-10ceb6fe8cf3
+{
+java:S1874"3Remove this use of "ManagedBean"; it is deprecated.(’ëºûûÿÿÿÿ8»âƒüè1J$71689226-e706-4318-a59a-da91ede8e006
+}
+java:S1874"5Remove this use of "SessionScoped"; it is deprecated.(¢ÈŸ×øÿÿÿÿ8½âƒüè1J$1964c062-c5f8-41b3-a329-ca06022dbc19
+n	java:S106¨"+Replace this use of System.out by a logger.(ØŽÑÈ8Úâƒüè1J$8b7cbae6-b3f4-4ab4-acbb-25bba5fefc00
+m	java:S106©"+Replace this use of System.out by a logger.(›Ö‹l8Ûâƒüè1J$33d17de3-836a-4b1e-b1ff-993f6321ed95
+s	java:S106ª"+Replace this use of System.out by a logger.(ç’¯Çþÿÿÿÿ8Üâƒüè1J$979def51-d716-4fe6-a39e-643bf2c4cfff
+}
+java:S1117¼"9Rename "skill" which hides the field declared at line 33.(ÒÝºæ8ÑÃì™é1J$6055530f-0c45-4ec2-9eff-8401f8c63060
+s	java:S106À"+Replace this use of System.out by a logger.(˜ê­Œùÿÿÿÿ8çâƒüè1J$f23a9e48-a1d3-4dde-81a5-169812689c94
+…
+java:S1117Á"<Rename "projects" which hides the field declared at line 25.(ýÜÐÆýÿÿÿÿ8èâƒüè1J$fd31c4f7-c21e-44db-b824-6edbef7763d0
+„
+java:S1117Â";Rename "project" which hides the field declared at line 27.(éßøŽýÿÿÿÿ8êâƒüè1J$8dbfb1d9-d877-4896-8ef5-2657a2e36093
+‹
+java:S1117Þ"BRename "employeeSkills" which hides the field declared at line 35.(˜žî¯øÿÿÿÿ8¢‹×úè1J$cc99a13f-f3fd-4434-a7d6-6e241dead152
+l
+java:S1068!")Remove this unused "skill" private field.(é¹àñ8åÃì™é1J$92855bf2-6a64-461f-8f3d-4ec0a4b71ea6

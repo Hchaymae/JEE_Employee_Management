@@ -219,7 +219,7 @@ public class AppBean {
         }
     }
 
-    public String addEmployee() {
+    public void addEmployee() {
         List<EmployeeSkill> skills = convertToEmployeeSkills(Arrays.asList(skillsString.split("\\s*,\\s*")));
 
         employee.setSkills(skills);
@@ -228,10 +228,7 @@ public class AppBean {
             this.employee = new Employee();
             this.skill = new EmployeeSkill();
             loadEmployeesList();
-            return "list?faces-redirect=true";
-        } else {
-            return null;
-        }
+        } 
     }
 
     private List<EmployeeSkill> convertToEmployeeSkills(List<String> skills) {

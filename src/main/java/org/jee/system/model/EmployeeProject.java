@@ -7,20 +7,23 @@ import java.io.Serializable;
 @Entity
 @Table(name = "employee_project")
 public class EmployeeProject {
+
     @EmbeddedId
     private EmployeeProjectId id;
 
     @ManyToOne
     @MapsId("employeeId")
+    @JoinColumn(name = "employee_id")
     private Employee employee;
 
     @ManyToOne
     @MapsId("projectId")
+    @JoinColumn(name = "project_id")
     private Project project;
 
-    // Additional columns
+    @Column(name = "charge")
     private double charge;
-
+    
     public EmployeeProject() {
     }
 

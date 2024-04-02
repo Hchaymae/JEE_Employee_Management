@@ -6,6 +6,12 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "employee_project")
+@NamedQueries({
+    @NamedQuery(name = "EmployeeProject.findAll", query = "SELECT ep FROM EmployeeProject ep"),
+    @NamedQuery(name = "EmployeeProject.findByEmployeeId", query = "SELECT ep FROM EmployeeProject ep WHERE ep.employee.id = :employeeId"),
+    @NamedQuery(name = "EmployeeProject.findByProjectId", query = "SELECT ep FROM EmployeeProject ep WHERE ep.project.id = :projectId"),
+    @NamedQuery(name = "EmployeeProject.findByCharge", query = "SELECT ep FROM EmployeeProject ep WHERE ep.charge = :charge")
+})
 public class EmployeeProject {
 
     @EmbeddedId

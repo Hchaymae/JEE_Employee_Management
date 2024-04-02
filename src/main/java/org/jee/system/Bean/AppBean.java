@@ -7,6 +7,7 @@ import jakarta.faces.model.SelectItem;
 import org.jee.system.model.*;
 import org.jee.system.service.EmployeeService;
 import org.jee.system.service.ProjectService;
+import jakarta.faces.view.ViewScoped;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @ManagedBean(name="appBean")
-@SessionScoped
+@ViewScoped
 public class AppBean {
     private List<Employee> employees;
     private List<Employee> employeesList;

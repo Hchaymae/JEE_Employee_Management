@@ -5,6 +5,7 @@ import org.jee.system.dao.ProjectDAO;
 import org.jee.system.model.Employee;
 import org.jee.system.model.EmployeeProject;
 import org.jee.system.model.Project;
+import jakarta.enterprise.context.RequestScoped;
 
 import java.util.List;
 

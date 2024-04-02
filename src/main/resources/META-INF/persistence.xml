@@ -9,8 +9,10 @@
     <class>org.jee.system.model.EmployeeSkill</class>
 
       <properties>
-         <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlserver://myserverchay.database.windows.net:1433;database=employee;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;Authentication=ActiveDirectoryIntegrated"/>
-        <property name="jakarta.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+         <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://mysql-23b70503-hamdounechaymae-7b98.a.aivencloud.com:10809/ProjectExam"/>
+        <property name="jakarta.persistence.jdbc.user" value="avnadmin"/>
+        <property name="jakarta.persistence.jdbc.password" value="AVNS_SaW-XThrGf5zN1k7imF"/>
+        <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
         <property name="eclipselink.logging.level" value="FINE"/>
         <property name="eclipselink.ddl-generation" value="create-tables"/>
       </properties>

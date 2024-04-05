@@ -86,21 +86,4 @@ public class Project {
                 ", employeeProjects=" + employeeProjects +
                 '}';
     }
-      @PostPersist
-    private void insertProject() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("YourPersistenceUnitName");
-        EntityManager em = emf.createEntityManager();
-
-        em.getTransaction().begin();
-        
-        em.createNativeQuery("INSERT INTO project (name, budget) VALUES ('CTM', 10000)").executeUpdate();
-        em.createNativeQuery("INSERT INTO project (name, budget) VALUES ('Nestle', 200000)").executeUpdate();
-        em.createNativeQuery("INSERT INTO project (name, budget) VALUES ('Adidas', 155000)").executeUpdate();
-        em.createNativeQuery("INSERT INTO project (name, budget) VALUES ('Stell', 255400)").executeUpdate();
-        em.createNativeQuery("INSERT INTO project (name, budget) VALUES ('Energie', 10000)").executeUpdate();
-
-        em.getTransaction().commit();
-        em.close();
-        emf.close();
-    }
 }

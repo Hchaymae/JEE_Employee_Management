@@ -4,48 +4,36 @@ import jakarta.faces.bean.ManagedBean;
 import jakarta.faces.bean.SessionScoped;
 import jakarta.faces.component.html.HtmlCommandButton;
 import jakarta.faces.model.SelectItem;
+import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
 import org.jee.system.model.*;
 import org.jee.system.service.EmployeeService;
 import org.jee.system.service.ProjectService;
-import jakarta.faces.view.ViewScoped;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import jakarta.inject.Inject;
-
 
 @ManagedBean(name="appBean")
 @ViewScoped
 public class AppBean {
-     @Inject
     private List<Employee> employees;
-     @Inject
+
+    @Inject
     private List<Employee> employeesList;
-     @Inject
     private EmployeeService employeeService;
-     @Inject
     private Employee employee;
-     @Inject
     private HtmlCommandButton affecterButton;
-     @Inject
     private List<SelectItem> posts;
-     @Inject
     private List<Project> projects;
-     @Inject
     private ProjectService projectService;
-     @Inject
     private Project project;
 
     private String skillsString;
-     @Inject
     private String selectedEmployee;
-     @Inject
     private String selectedProject;
-     @Inject
     private String selectedPercentage;
-     @Inject
     private EmployeeSkill skill;
 
     private List<String> employeeSkills = new ArrayList<>();
@@ -219,7 +207,7 @@ public class AppBean {
         }
     }
 
-    public void addEmployee() {
+    public String addEmployee() {
         List<EmployeeSkill> skills = convertToEmployeeSkills(Arrays.asList(skillsString.split("\\s*,\\s*")));
 
         employee.setSkills(skills);
@@ -228,7 +216,10 @@ public class AppBean {
             this.employee = new Employee();
             this.skill = new EmployeeSkill();
             loadEmployeesList();
-        } 
+            return "list?faces-redirect=true";
+        } else {
+            return null;
+        }
     }
 
     private List<EmployeeSkill> convertToEmployeeSkills(List<String> skills) {
@@ -239,6 +230,16 @@ public class AppBean {
             employeeSkills.add(employeeSkill);
         }
         return employeeSkills;
+    }
+    public void addProject() {
+        if(projectService.addProjectService(project) > 0){
+            this.project = new Project();
+            loadProjectsList();
+        }
+    }
+
+    private void loadProjectsList() {
+        projects = projectService.findAllService();
     }
 
 }

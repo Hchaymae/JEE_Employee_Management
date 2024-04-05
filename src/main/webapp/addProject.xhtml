@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:head>
+        <h:outputStylesheet  library="webjars" name="bootstrap/5.3.3/css/bootstrap.css"/>
+        <title>Add a Project</title>
+    </h:head>
+    <h:body>
+        <div class="container mt-5">
+            <h:form>
+                <div class="container">
+                    <h:messages globalOnly="true" infoClass="alert alert-success" errorClass="alert alert-danger" warnClass="alert alert-warning" style="list-style: none" />
+                </div>
+                <h2>Add Project</h2>
+                <div>
+                    <h:outputLink style="text-decoration: none; color:cornflowerblue;" value="list.xhtml">Back To Home</h:outputLink>
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <h:inputText id="name" value="#{appBean.project.name}" class="form-control" required="true"/>
+                </div>
+                <div class="mb-3">
+                    <label for="budget" class="form-label">Budget</label>
+                    <h:inputText id="budget" value="#{appBean.project.budget}" class="form-control" required="true"/>
+                </div>
+                <h:commandButton value="Add Project" action="#{appBean.addProject}" class="btn btn-primary"/>
+            </h:form>
+        </div>
+    </h:body>
+</f:view>
+</html>

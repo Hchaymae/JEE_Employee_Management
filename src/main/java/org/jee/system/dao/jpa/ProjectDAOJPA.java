@@ -28,7 +28,6 @@ public class ProjectDAOJPA implements ProjectDAO {
             return 0;
         } else {
             try {
-                entityManager.getTransaction().begin();
                 entityManager.persist(project);
                 entityManager.getTransaction().commit();
                 return 1;

@@ -8,7 +8,6 @@ import java.util.List;
 public interface ProjectDAO {
     public int addProject(Project project);
     public List<Project> findAll();
-    public int addProject(Project project);
     public int findProjectIdByName(String name);
     public Project findProjectByName(String name);
     public Project findProjectById(int id);

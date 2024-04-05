@@ -1,5 +1,7 @@
 package org.jee.system.service;
 
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
 import org.jee.system.dao.ProjectDAO;
 import org.jee.system.dao.jpa.ProjectDAOJPA;
 import org.jee.system.model.EmployeeProject;
@@ -15,7 +17,13 @@ public class ProjectService {
     }
 
     public int addProjectService(Project project){
-        return projectDAO.addProject(project);
+        int result = projectDAO.addProject(project);
+        if (result > 0) {
+            addSuccessMessage("Project added successfully");
+        } else {
+            addErrorMessage("Error adding project");
+        }
+        return result;
     }
     public List<Project> findAllService(){
         return projectDAO.findAll();
@@ -32,5 +40,25 @@ public class ProjectService {
 
     public List<EmployeeProject> findAllProjectsEmployeesService(int employeeId){
         return projectDAO. findProjectsByEmployeeId(employeeId) ;
+    }
+
+    /**
+     * Adds an error message to the FacesContext.
+     *
+     * @param message The error message to be added.
+     */
+    private void addErrorMessage(String message) {
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_ERROR, message, null));
+    }
+
+    /**
+     * Adds a success message to the FacesContext.
+     *
+     * @param message The success message to be added.
+     */
+    private void addSuccessMessage(String message) {
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
     }
 }

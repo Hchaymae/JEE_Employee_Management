@@ -16,20 +16,29 @@ public class ProjectDAOJPA implements ProjectDAO {
     @PersistenceContext(unitName = "Eclipselink")
     private EntityManager entityManager;
 
-
     public ProjectDAOJPA() {
         entityManagerFactory = Persistence.createEntityManagerFactory("Eclipselink");
         entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
     }
+
     @Override
     public int addProject(Project project) {
         if(project == null) {
             return 0;
-        }else{
-            entityManager.persist(project);
-            entityManager.getTransaction().commit();
-            return 1;
+        } else {
+            try {
+                entityManager.getTransaction().begin();
+                entityManager.persist(project);
+                entityManager.getTransaction().commit();
+                return 1;
+            } catch (Exception e) {
+                if (entityManager.getTransaction().isActive()) {
+                    entityManager.getTransaction().rollback();
+                }
+                e.printStackTrace();
+                return 0;
+            }
         }
     }
 
@@ -37,7 +46,6 @@ public class ProjectDAOJPA implements ProjectDAO {
     public List<Project> findAll() {
         return entityManager.createNativeQuery("SELECT * FROM project", Project.class).getResultList();
     }
-
 
     public void deleteProject(EmployeeProject project) {
         entityManager.remove(entityManager.merge(project));
@@ -71,12 +79,10 @@ public class ProjectDAOJPA implements ProjectDAO {
         return entityManager.find(Project.class, id);
     }
 
-
     @Override
     public List<EmployeeProject> findProjectsByEmployeeId(int employeeId) {
         return entityManager.createNativeQuery("SELECT ep.* FROM employee_project ep WHERE ep.employee_id = ?", EmployeeProject.class)
                 .setParameter(1, employeeId)
                 .getResultList();
     }
-
 }
